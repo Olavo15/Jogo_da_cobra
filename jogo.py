@@ -4,12 +4,39 @@ import pygame
 import threading
 import time
 
-# Inicialize o mixer de áudio
 pygame.mixer.init()
+pygame.mixer.music.load("Musc.mp3")
+pygame.mixer.music.play(-1)
 
-# Carregue os arquivos de áudio
-# eating_sound = pygame.mixer.Sound("eating_sound.wav")
-# collision_sound = pygame.mixer.Sound("collision_sound.wav")
+def draw_spiral():
+    h = 0 
+    w = 0
+
+    turtle.hideturtle()
+    turtle.bgcolor("black")
+    turtle.speed(0)
+    turtle.pencolor("green")
+    turtle.penup()
+    turtle.goto(0, 200)
+    turtle.pendown()
+
+    while True:
+        turtle.forward(h)
+        turtle.right(w)
+        h += 3
+        w += 1
+        if w == 200:
+            turtle.penup()
+            turtle.goto(0, 0)  # Posiciona no centro
+            turtle.write("Bem vindos", align="center", font=("Arial", 120, "normal"))
+            turtle.ontimer(turtle.clear, 200) 
+            break
+
+if __name__ == "__main__":
+    draw_spiral()
+
+
+pygame.mixer.init()
 
 # Definição das constantes e variáveis globais
 WIDTH = 750
@@ -160,6 +187,7 @@ snake_shape = "square"
 pen = turtle.Turtle(snake_shape)
 pen.penup()
 pen.color(snake_color)
+
 
 food = turtle.Turtle()
 food.shape("circle")
