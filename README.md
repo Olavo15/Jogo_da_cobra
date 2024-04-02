@@ -18,7 +18,7 @@ Música de fundo e efeitos sonoros usando a biblioteca Pygame.
 - Opção de reiniciar o jogo pressionando a tecla "R".
 
 ## Requisitos
-- Python 3.x
+- Python 3.12.2
 - Pygame (instalável via pip install pygame)
 - Turtle (já incluída na biblioteca padrão do Python)
 
