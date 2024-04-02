@@ -7,6 +7,7 @@ import time
 pygame.mixer.init()
 pygame.mixer.music.load("musc_ELN5cFaO.mp3")
 pygame.mixer.music.play(-1)
+death_sound = pygame.mixer.Sound("morte_5VPs8zuv.mp3")
 
 def draw_spiral():
     h = 0 
@@ -28,9 +29,9 @@ def draw_spiral():
         if w == 200:
             turtle.penup()
             turtle.goto(0, 0)  
-            turtle.write("Bem vindos", align="center", font=("Arial", 100, "normal"))
             turtle.color("white")
-            turtle.ontimer(turtle.clear, 250) 
+            turtle.write("Bem vindos!", align="center", font=("Arial", 80, "normal"))
+            turtle.ontimer(turtle.clear, 300) 
             break
 
 if __name__ == "__main__":
@@ -128,7 +129,8 @@ def game_over():
     pen.write("Game Over", align="center", font=("Arial", 24, "normal"))
     pen.goto(0, -30)
     pen.write("Pressione R para reiniciar", align="center", font=("Arial", 16, "normal"))
-    # collision_sound.play() 
+    pygame.mixer.music.stop()  # Parar a música de fundo
+    death_sound.play()  # Reproduzir a música de morte
 
 # Função para limpar a tela
 def clear_screen():
@@ -176,6 +178,7 @@ def restart():
     if not is_alive:
         reset()
         clear_screen()
+        pygame.mixer.music.play(-1)  # Reproduzir a música de fundo novamente
 
 screen = turtle.Screen()
 screen.setup(WIDTH, HEIGHT)
