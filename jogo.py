@@ -5,7 +5,7 @@ import threading
 import time
 
 pygame.mixer.init()
-pygame.mixer.music.load("Musc.mp3")
+pygame.mixer.music.load("musc_ELN5cFaO.mp3")
 pygame.mixer.music.play(-1)
 
 def draw_spiral():
@@ -27,9 +27,10 @@ def draw_spiral():
         w += 1
         if w == 200:
             turtle.penup()
-            turtle.goto(0, 0)  # Posiciona no centro
-            turtle.write("Bem vindos", align="center", font=("Arial", 120, "normal"))
-            turtle.ontimer(turtle.clear, 200) 
+            turtle.goto(0, 0)  
+            turtle.write("Bem vindos", align="center", font=("Arial", 100, "normal"))
+            turtle.color("white")
+            turtle.ontimer(turtle.clear, 250) 
             break
 
 if __name__ == "__main__":
